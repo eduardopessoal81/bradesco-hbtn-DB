@@ -17,7 +17,7 @@ public class Aluno {
     private String matricula;
 
     @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
+    private Date nascimento;
 
     private String email;
 
@@ -54,12 +54,12 @@ public class Aluno {
 		this.matricula = matricula;
 	}
 
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public Date getNascimento() {
+		return nascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
 	}
 
 	public String getEmail() {

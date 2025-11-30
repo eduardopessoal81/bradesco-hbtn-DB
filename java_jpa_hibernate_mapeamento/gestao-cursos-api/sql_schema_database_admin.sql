@@ -1,6 +1,9 @@
 CREATE TABLE aluno (
        id  integer,
-        nome varchar(255), dataNascimento date, email varchar(255), matricula varchar(255), nomeCompleto varchar(255),
+        email varchar(255),
+        matricula varchar(255),
+        nascimento date,
+        nomeCompleto varchar(255),
         primary key (id)
     )
     

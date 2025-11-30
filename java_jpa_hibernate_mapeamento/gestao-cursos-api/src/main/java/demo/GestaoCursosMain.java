@@ -33,7 +33,7 @@ public class GestaoCursosMain {
         aluno.setNomeCompleto("João Pereira");
         aluno.setMatricula("ALU001");
         aluno.setEmail("joao@teste.com");
-        aluno.setDataNascimento(new Date());
+        aluno.setNascimento(new Date());
 
         Telefone tel = new Telefone();
         tel.setDDD("11");
