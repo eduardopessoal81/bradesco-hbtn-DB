@@ -1,15 +1,8 @@
 package entities;
 
+import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "aluno")
@@ -19,13 +12,20 @@ public class Aluno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String nomeCompleto;
 
-    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
-    private List<Endereco> enderecos;
+    private String matricula;
+
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
+
+    private String email;
 
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
     private List<Telefone> telefones;
+
+    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
+    private List<Endereco> enderecos;
 
     @ManyToMany(mappedBy = "alunos")
     private List<Curso> cursos;
@@ -38,20 +38,36 @@ public class Aluno {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomeCompleto() {
+		return nomeCompleto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
 	}
 
-	public List<Endereco> getEnderecos() {
-		return enderecos;
+	public String getMatricula() {
+		return matricula;
 	}
 
-	public void setEnderecos(List<Endereco> enderecos) {
-		this.enderecos = enderecos;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public List<Telefone> getTelefones() {
@@ -60,6 +76,14 @@ public class Aluno {
 
 	public void setTelefones(List<Telefone> telefones) {
 		this.telefones = telefones;
+	}
+
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
 	}
 
 	public List<Curso> getCursos() {

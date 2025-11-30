@@ -1,12 +1,6 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "material_curso")
@@ -16,10 +10,10 @@ public class MaterialCurso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String descricao;
+    private String url;
 
     @OneToOne
-    @JoinColumn(name = "curso_id")
+    @JoinColumn(name = "curso_id", unique = true)
     private Curso curso;
 
 	public Long getId() {
@@ -30,12 +24,12 @@ public class MaterialCurso {
 		this.id = id;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public Curso getCurso() {

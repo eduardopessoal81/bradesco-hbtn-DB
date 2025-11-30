@@ -1,18 +1,7 @@
 package entities;
 
+import javax.persistence.*;
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "curso")
@@ -23,6 +12,8 @@ public class Curso {
     private Long id;
 
     private String nome;
+
+    private String sigla;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "professor_id")
@@ -55,6 +46,14 @@ public class Curso {
 		this.nome = nome;
 	}
 
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
 	public Professor getProfessor() {
 		return professor;
 	}
@@ -77,5 +76,5 @@ public class Curso {
 
 	public void setMaterial(MaterialCurso material) {
 		this.material = material;
-	}    
+	}
 }
